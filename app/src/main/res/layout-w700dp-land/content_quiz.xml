@@ -18,7 +18,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:name="edu.orangecoastcollege.cs273.dnovasky.flagquiz.QuizActivityFragment"
-        android:id="@+id/fragment3"
+        android:id="@+id/quizFragment"
         tools:layout="@layout/fragment_quiz"
         android:layout_weight="2"/>
 </LinearLayout>

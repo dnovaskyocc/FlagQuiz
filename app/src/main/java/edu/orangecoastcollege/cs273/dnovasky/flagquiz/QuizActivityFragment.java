@@ -5,7 +5,6 @@ import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -241,7 +240,7 @@ public class QuizActivityFragment extends Fragment {
         for (int row = 0; row < guessRows; row++) {
             LinearLayout guessRow = guessLinearLayouts[row];
             for (int column = 0; column < guessRow.getChildCount(); column++) {
-                guessRow.getChildAt(column).setEnabled(true);
+                guessRow.getChildAt(column).setEnabled(false);
             }
         }
     }
@@ -272,13 +271,12 @@ public class QuizActivityFragment extends Fragment {
                 // If the user has correctly identified FLAGS_IN_QUIZ flags.
                 if (correctAnswers == FLAGS_IN_QUIZ) {
                     // DialogFragment to display quiz stats and start new quiz
-                    DialogFragment quizResults = new ResultsDialogFragment();
+                    ResultsDialogFragment quizResults = new ResultsDialogFragment();
                     Bundle args = new Bundle();
                     args.putInt("totalGuesses", totalGuesses);
                     quizResults.setArguments(args);
                     quizResults.setCancelable(false);
                     quizResults.show(getFragmentManager(), "dialog");
-                    resetQuiz();
                 }
                 else { // Answer is correct but quiz is not over.
                     // Load the next flag after a 2 second delay.

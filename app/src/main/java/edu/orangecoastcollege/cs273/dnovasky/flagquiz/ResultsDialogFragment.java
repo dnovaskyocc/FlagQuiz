@@ -2,6 +2,7 @@ package edu.orangecoastcollege.cs273.dnovasky.flagquiz;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnDismissListener;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -12,7 +13,7 @@ import android.support.v7.app.AlertDialog;
  * This is a DialogFragment used to display the results at the end of the quiz
  */
 
-public class ResultsDialogFragment extends DialogFragment {
+public class ResultsDialogFragment extends DialogFragment implements OnDismissListener {
     // Create a new AlertDialog and return it.
     @NonNull
     @Override
@@ -30,6 +31,7 @@ public class ResultsDialogFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface,
                                         int i) {
+                        dismiss();
                     }
                 });
         return builder.create(); // Return the AlertDialog.
